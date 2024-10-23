@@ -1,4 +1,4 @@
-import { Book, Books, CreateBook } from './books.types'
+import { Book, Books, CreateBook } from '../types/books.types'
 import { NotFoundError } from '@vramework/core'
 
 /**
@@ -10,12 +10,8 @@ export class BookService {
 
   /**
    * Creates a new book and adds it to the collection.
-   * @param title - The title of the book.
-   * @param author - The author of the book.
-   * @param year - The year the book was published.
-   * @returns The newly created book.
    */
-  createBook(book: CreateBook): Book {
+  public createBook(book: CreateBook): Book {
     const newBook: Book = { id: (this.nextId++).toString(), ...book }
     this.books.set(newBook.id, newBook)
     return newBook
@@ -23,10 +19,8 @@ export class BookService {
 
   /**
    * Retrieves a book by its unique ID.
-   * @param id - The ID of the book to retrieve.
-   * @returns The book object if found, or `undefined` if no book exists with the given ID.
    */
-  getBook(id: string): Book {
+  public getBook(id: string): Book {
     const book = this.books.get(id)
     if (book) {
       return book
@@ -36,20 +30,15 @@ export class BookService {
 
   /**
    * Retrieves the list of all books in the collection.
-   * @returns An array of all books.
    */
-  getBooks(): Books {
+  public getBooks(): Books {
     return [...this.books.values()]
   }
 
   /**
    * Updates the properties of a book with the given ID.
-   * Only the provided fields in `updatedInfo` will be changed.
-   * @param id - The ID of the book to update.
-   * @param updatedInfo - An object containing the fields to update (e.g., `title`, `author`, `year`).
-   * @returns The updated book object if the book exists, or throws a `NotFoundError` otherwise.
    */
-  updateBook(id: string, updatedInfo: Partial<Omit<Book, 'id'>>): Book {
+  public updateBook(id: string, updatedInfo: Partial<Omit<Book, 'id'>>): Book {
     const book = this.getBook(id)
     if (book) {
       this.books.set(id, { ...book, ...updatedInfo })
@@ -60,11 +49,8 @@ export class BookService {
 
   /**
    * Updates the properties of a book with the given ID.
-   * Only the provided fields in `updatedInfo` will be changed.
-   * @param id - The ID of the book to update.
-   * @param updatedInfo - An object containing the fields to update (e.g., `title`, `author`, `year`).
    */
-  deleteBook(id: string): boolean {
+  public deleteBook(id: string): boolean {
     return this.books.delete(id)
   }
 }

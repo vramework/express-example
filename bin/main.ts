@@ -1,8 +1,8 @@
 import { ExpressServer } from '../src/server'
 
-async function main({ configFile }: { configFile?: string }): Promise<void> {
+async function main(): Promise<void> {
   try {
-    const expressServer = new ExpressServer(configFile)
+    const expressServer = new ExpressServer()
     await expressServer.start()
   } catch (e: any) {
     console.error(e.toString())
@@ -10,6 +10,4 @@ async function main({ configFile }: { configFile?: string }): Promise<void> {
   }
 }
 
-main({
-  configFile: process.argv[2],
-})
+main()

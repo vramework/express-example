@@ -24,10 +24,7 @@
     "typescript": "^5.6"
   },
   "scripts": {
-    "routes": "npx --yes @vramework/cli routes",
-    "schemas": "npx --yes @vramework/cli schemas",
-    "prebuild": "npm run routes && npm run schemas",
-    "postinstall": "npm run prebuild",
+    "prebuild": "npx --yes @vramework/cli",
     "tsc": "tsc",
     "test": "mocha e2e",
     "start": "ts-node --transpile-only bin/main.ts",

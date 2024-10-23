@@ -13,5 +13,6 @@ jobs:
           node-version: 18
           cache: npm
       - run: npm install
+      - run: npm run prebuild
       - run: npm run tsc
       - run: npm run test

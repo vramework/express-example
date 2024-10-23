@@ -1,11 +1,11 @@
-import { addRoute } from './vramework-types'
+import { addRoute } from '@vramework/core'
 
 import {
   type UpdateBook,
   type CreateBook,
   type JustBookId,
-} from './books.types'
-import { Services } from './api'
+} from '../types/books.types'
+import { Services } from '../types/application-types'
 
 addRoute({
   auth: false,

@@ -1,10 +1,11 @@
-import {
+import type {
   CoreServerConfig,
+  CoreServices,
   CoreSingletonServices,
   CoreUserSession,
   JWTService
 } from '@vramework/core'
-import { BookService } from './book.service'
+import type { BookService } from '../src/book.service'
 
 export interface Config extends CoreServerConfig {}
 
@@ -15,4 +16,4 @@ export type SingletonServices = CoreSingletonServices & {
   books: BookService
 }
 
-export interface Services extends SingletonServices {}
+export interface Services extends CoreServices<SingletonServices> {}
