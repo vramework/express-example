@@ -1,9 +1,5 @@
 {
-  "rootDir": ".",
   "routeDirectories": ["./src"],
-  "schemaDirectory": "./.vramework",
-  "routesFile": "./.vramework/routes.ts",
-  "typesDeclarationFile": "./.vramework/vramework-types.d.ts",
-  "routesMapDeclarationFile": "./.vramework/vramework-routes.d.ts",
+  "outDir": "./.vramework",
   "tsconfig": "./tsconfig.json"
 }

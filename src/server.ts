@@ -9,8 +9,7 @@ import { vrameworkMiddleware } from '@vramework/express-middleware'
 import { config } from '../src/config'
 import { createSessionServices, createSingletonServices } from '../src/services'
 
-import '../.vramework/routes'
-import '../.vramework/schemas'
+import '../.vramework/vramework-bootstrap'
 
 export class ExpressServer {
   public app: core.Express = express()
