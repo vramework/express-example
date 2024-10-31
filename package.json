@@ -4,10 +4,10 @@
   "description": "An example to a minimal express deployment with vramework",
   "main": "bin/main.ts",
   "dependencies": {
-    "@vramework/cli": "^0.5.15",
-    "@vramework/core": "^0.5.7",
-    "@vramework/express-middleware": "^0.5.3",
-    "@vramework/fetch": "^0.5.0",
+    "@vramework/cli": "^0.5.18",
+    "@vramework/core": "^0.5.8",
+    "@vramework/express-middleware": "^0.5.4",
+    "@vramework/fetch": "^0.5.1",
     "@vramework/jose": "^0.5.1",
     "body-parser": "^1.20.3",
     "cookie-parser": "^1.4.7"
@@ -16,7 +16,7 @@
     "@types/cookie-parser": "^1.4.7",
     "@types/mocha": "^10.0.9",
     "@types/supertest": "^6.0.2",
-    "@vramework/cli": "^0.5.15",
+    "@vramework/cli": "^0.5.18",
     "mocha": "^10.7.3",
     "oxlint": "^0.9.5",
     "prettier": "^3.3.3",
