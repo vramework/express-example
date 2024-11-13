@@ -6,7 +6,7 @@ import * as cookieParser from 'cookie-parser'
 
 import { ConsoleLogger } from '@vramework/core'
 import { vrameworkMiddleware } from '@vramework/express-middleware'
-import { config } from '../src/config'
+import { getConfig } from '../src/config'
 import { createSessionServices, createSingletonServices } from '../src/services'
 
 import '../.vramework/vramework-bootstrap'
@@ -24,6 +24,8 @@ export class ExpressServer {
         res.status(200).json({ status: 'ok' })
     })
 
+    // Get the config
+    const config = await getConfig()
     // Create the singleton services
     const singletonServices = await createSingletonServices(config, this.logger)
     // Attach the vramework middleware
