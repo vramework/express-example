@@ -1,5 +1,5 @@
 import type { Config, Services, SingletonServices, UserSession } from '../types/application-types'
-import { CreateSessionServices, CreateSingletonServices, Logger, VrameworkSessionService } from '@vramework/core'
+import { CreateSessionServices, CreateSingletonServices, Logger, VrameworkHTTPSessionService } from '@vramework/core'
 import { JoseJWTService } from '@vramework/jose'
 import { BookService } from './book.service'
 
@@ -21,7 +21,7 @@ export const createSingletonServices: CreateSingletonServices<Config, SingletonS
     logger
   )
 
-  const sessionService = new VrameworkSessionService<UserSession>(jwt, {})
+  const sessionService = new VrameworkHTTPSessionService<UserSession>(jwt, {})
 
   return {
     config,
