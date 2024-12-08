@@ -1,5 +1,7 @@
 import type { Config, Services, SingletonServices, UserSession } from '../types/application-types'
-import { CreateSessionServices, CreateSingletonServices, Logger, VrameworkHTTPSessionService } from '@vramework/core'
+import { CreateSessionServices, CreateSingletonServices } from '@vramework/core'
+import { Logger } from '@vramework/core/services'
+import { VrameworkHTTPSessionService } from '@vramework/core/http'
 import { JoseJWTService } from '@vramework/jose'
 import { BookService } from './book.service'
 

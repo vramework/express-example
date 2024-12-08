@@ -1,4 +1,4 @@
-import { addRoute } from '@vramework/core'
+import { addRoute } from '@vramework/core/http'
 
 import {
   type UpdateBook,

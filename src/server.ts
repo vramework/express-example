@@ -2,7 +2,7 @@ import { Server } from 'http'
 import * as express from 'express'
 import * as cookieParser from 'cookie-parser'
 
-import { ConsoleLogger } from '@vramework/core'
+import { ConsoleLogger } from '@vramework/core/services'
 import { vrameworkMiddleware } from '@vramework/express-middleware'
 
 import { getConfig } from '../src/config'

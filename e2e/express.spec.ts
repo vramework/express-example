@@ -1,6 +1,6 @@
 import * as request from 'supertest'
 import { ExpressServer } from '../src/server'
-import { LogLevel } from '@vramework/core'
+import { LogLevel } from '@vramework/core/services'
 
 const setupTestAgent = async () => {
     const vrameworkServer = new ExpressServer()

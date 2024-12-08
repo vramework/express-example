@@ -1,4 +1,5 @@
-import { CreateConfig, LogLevel } from '@vramework/core'
+import { CreateConfig } from '@vramework/core'
+import { LogLevel } from '@vramework/core/services'
 import { Config } from '../types/application-types'
 
 export const getConfig: CreateConfig<Config> = async () => ({
