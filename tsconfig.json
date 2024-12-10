@@ -12,6 +12,6 @@
     "esModuleInterop": false,
     "resolveJsonModule": true,
     "lib": ["es2018"],
-    "types": ["node", "mocha"]
+    "types": ["node"]
   }
 }

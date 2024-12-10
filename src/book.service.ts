@@ -1,5 +1,5 @@
-import { Book, Books, CreateBook } from '../types/books.types'
-import { NotFoundError } from '@vramework/core'
+import { Book, Books, CreateBook } from '../types/books.types.js'
+import { NotFoundError } from '@vramework/core/errors'
 
 /**
  * Service for managing books with basic CRUD operations.

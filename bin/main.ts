@@ -1,4 +1,4 @@
-import { ExpressServer } from '../src/server'
+import { ExpressServer } from '../src/server.js'
 
 async function main(): Promise<void> {
   try {

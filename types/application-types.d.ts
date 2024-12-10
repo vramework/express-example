@@ -4,7 +4,7 @@ import type {
   CoreSingletonServices,
   CoreUserSession,
   JWTService,
-  LogLevel
+  LogLevel,
 } from '@vramework/core'
 import type { BookService } from '../src/book.service'
 

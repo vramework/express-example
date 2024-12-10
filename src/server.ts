@@ -1,12 +1,15 @@
 import { Server } from 'http'
-import * as express from 'express'
-import * as cookieParser from 'cookie-parser'
+import express from 'express'
+import cookieParser from 'cookie-parser'
 
 import { ConsoleLogger } from '@vramework/core/services'
 import { vrameworkMiddleware } from '@vramework/express-middleware'
 
-import { getConfig } from '../src/config'
-import { createSessionServices, createSingletonServices } from '../src/services'
+import { getConfig } from '../src/config.js'
+import {
+  createSessionServices,
+  createSingletonServices,
+} from '../src/services.js'
 
 import '../.vramework/vramework-bootstrap'
 
@@ -20,7 +23,7 @@ export class ExpressServer {
     this.app.use(cookieParser())
 
     this.app.get('/health-check', (_req, res) => {
-        res.status(200).json({ status: 'ok' })
+      res.status(200).json({ status: 'ok' })
     })
 
     // Get the config
@@ -28,12 +31,16 @@ export class ExpressServer {
     // Create the singleton services
     const singletonServices = await createSingletonServices(config, this.logger)
     // Attach the vramework middleware
-    this.app.use(vrameworkMiddleware(singletonServices, createSessionServices, {
-      respondWith404: false,
-    }))
+    this.app.use(
+      vrameworkMiddleware(singletonServices, createSessionServices, {
+        respondWith404: false,
+      })
+    )
 
     this.server = this.app.listen(config.port, config.hostname, () => {
-      this.logger.info(`listening on port ${config.port} and host: ${config.hostname}`)
+      this.logger.info(
+        `listening on port ${config.port} and host: ${config.hostname}`
+      )
     })
   }
 }

@@ -4,8 +4,8 @@ import {
   type UpdateBook,
   type CreateBook,
   type JustBookId,
-} from '../types/books.types'
-import { Services } from '../types/application-types'
+} from '../types/books.types.js'
+import { Services } from '../types/application-types.js'
 
 addRoute({
   auth: false,
@@ -18,14 +18,16 @@ addRoute({
   auth: false,
   method: 'post',
   route: '/book',
-  func: async (services: Services, data: CreateBook) => await services.books.createBook(data),
+  func: async (services: Services, data: CreateBook) =>
+    await services.books.createBook(data),
 })
 
 addRoute({
   auth: false,
   method: 'get',
   route: '/book/:id',
-  func: async (services: Services, data: JustBookId) => await services.books.getBook(data.id)
+  func: async (services: Services, data: JustBookId) =>
+    await services.books.getBook(data.id),
 })
 
 addRoute({
@@ -34,12 +36,13 @@ addRoute({
   route: '/book/:id',
   func: async (services: Services, { id, ...update }: UpdateBook) => {
     return await services.books.updateBook(id, update)
-  }
+  },
 })
 
 addRoute({
   auth: false,
   method: 'delete',
   route: '/book/:id',
-  func: async (services: Services, data: JustBookId) => await services.books.deleteBook(data.id)
+  func: async (services: Services, data: JustBookId) =>
+    await services.books.deleteBook(data.id),
 })
