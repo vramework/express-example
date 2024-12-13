@@ -3,10 +3,14 @@ import * as assert from 'node:assert'
 import * as request from 'supertest'
 import { LogLevel } from '@vramework/core/services'
 import { ExpressServer } from '../src/server.js'
+import { getConfig } from '../src/config.js'
+import { createSingletonServices } from '../src/services.js'
 
 const setupTestAgent = async () => {
-  const vrameworkServer = new ExpressServer()
-  vrameworkServer.logger.setLevel(LogLevel.critical)
+  const config = await getConfig()
+  const singletonServices = await createSingletonServices(config)
+  singletonServices.logger.setLevel(LogLevel.critical)
+  const vrameworkServer = new ExpressServer(singletonServices)
   await vrameworkServer.start()
 
   const agent = request.agent(vrameworkServer.server)

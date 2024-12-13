@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "target": "es2022",
-    "module": "Node16",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
     "declaration": false,
     "sourceMap": true,
     "allowJs": false,
@@ -13,5 +14,6 @@
     "resolveJsonModule": true,
     "lib": ["es2018"],
     "types": ["node"]
-  }
+  },
+  "include": [".vramework/*.ts"]
 }

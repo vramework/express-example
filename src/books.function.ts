@@ -1,48 +1,8 @@
-import { addRoute } from '@vramework/core/http'
+import type { UpdateBook, CreateBook, JustBookId, Books, Book } from '../types/books.types.js'
+import { APIFunction } from '../.vramework/vramework-types.js'
 
-import {
-  type UpdateBook,
-  type CreateBook,
-  type JustBookId,
-} from '../types/books.types.js'
-import { Services } from '../types/application-types.js'
-
-addRoute({
-  auth: false,
-  method: 'get',
-  route: '/books',
-  func: async (services: Services) => await services.books.getBooks(),
-})
-
-addRoute({
-  auth: false,
-  method: 'post',
-  route: '/book',
-  func: async (services: Services, data: CreateBook) =>
-    await services.books.createBook(data),
-})
-
-addRoute({
-  auth: false,
-  method: 'get',
-  route: '/book/:id',
-  func: async (services: Services, data: JustBookId) =>
-    await services.books.getBook(data.id),
-})
-
-addRoute({
-  auth: false,
-  method: 'patch',
-  route: '/book/:id',
-  func: async (services: Services, { id, ...update }: UpdateBook) => {
-    return await services.books.updateBook(id, update)
-  },
-})
-
-addRoute({
-  auth: false,
-  method: 'delete',
-  route: '/book/:id',
-  func: async (services: Services, data: JustBookId) =>
-    await services.books.deleteBook(data.id),
-})
+export const getBooks: APIFunction<void, Books> = async (services) => await services.books.getBooks()
+export const createBook: APIFunction<CreateBook, Book> = async (services, data) => await services.books.createBook(data)
+export const getBook: APIFunction<JustBookId, Book> = async (services, data) =>  await services.books.getBook(data.id)
+export const updateBook: APIFunction<UpdateBook, Book> = async (services, { id, ...rest }) =>  await services.books.updateBook(id, rest)
+export const deleteBook: APIFunction<JustBookId, void> = async (services, data) => { await services.books.deleteBook(data.id) }

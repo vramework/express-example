@@ -6,7 +6,7 @@ import type {
   JWTService,
   LogLevel,
 } from '@vramework/core'
-import type { BookService } from '../src/book.service'
+import type { BookService } from '../src/book.service.js'
 
 export interface Config extends CoreServerConfig {
   port: number
@@ -17,6 +17,7 @@ export interface Config extends CoreServerConfig {
 export interface UserSession extends CoreUserSession {}
 
 export type SingletonServices = CoreSingletonServices & {
+  config: Config,
   jwt: JWTService<UserSession>
   books: BookService
 }
