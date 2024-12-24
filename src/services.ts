@@ -5,7 +5,7 @@ import type {
   UserSession,
 } from '../types/application-types.js'
 import { CreateSessionServices, CreateSingletonServices } from '@vramework/core'
-import { ConsoleLogger, Logger } from '@vramework/core/services'
+import { ConsoleLogger, LocalVariablesService, Logger } from '@vramework/core/services'
 import { VrameworkHTTPSessionService } from '@vramework/core/http'
 import { JoseJWTService } from '@vramework/jose'
 import { BookService } from './book.service.js'
@@ -18,6 +18,7 @@ export const createSingletonServices: CreateSingletonServices<
   Config,
   SingletonServices
 > = async (config: Config): Promise<SingletonServices> => {
+  const variablesService = new LocalVariablesService()
   const logger = new ConsoleLogger()
   
   const jwt = new JoseJWTService<UserSession>(
@@ -30,13 +31,14 @@ export const createSingletonServices: CreateSingletonServices<
     logger
   )
 
-  const sessionService = new VrameworkHTTPSessionService<UserSession>(jwt, {})
+  const httpSessionService = new VrameworkHTTPSessionService<UserSession>(jwt, {})
 
   return {
     config,
     logger,
+    variablesService,
     jwt,
-    sessionService,
+    httpSessionService,
     books: new BookService(),
   }
 }
@@ -47,8 +49,8 @@ export const createSingletonServices: CreateSingletonServices<
  */
 export const createSessionServices: CreateSessionServices<
   SingletonServices,
-  UserSession,
-  Services
+  Services,
+  UserSession
 > = async (_services, _session) => {
   return {}
 }

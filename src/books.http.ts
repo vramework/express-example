@@ -1,4 +1,4 @@
-import { addRoute } from '@vramework/core/http'
+import { addRoute } from '@vramework/core'
 import { getBooks, createBook, getBook, updateBook, deleteBook } from './books.function.js'
 
 addRoute({

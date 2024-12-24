@@ -1,4 +1,4 @@
-import { addScheduledTask } from '@vramework/core/scheduler'
+import { addScheduledTask } from '@vramework/core'
 import { APIFunctionSessionless } from '../.vramework/vramework-types.js'
 
 const myScheduledTask: APIFunctionSessionless<void, void> = async () => {
