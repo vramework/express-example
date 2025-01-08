@@ -5,8 +5,8 @@
   "main": "bin/main.ts",
   "type": "module",
   "dependencies": {
-    "@vramework/cli": "^0.6.2",
-    "@vramework/core": "^0.6.3",
+    "@vramework/cli": "^0.6.3",
+    "@vramework/core": "^0.6.4",
     "@vramework/express-middleware": "^0.6.2",
     "@vramework/fetch": "^0.6.0",
     "@vramework/jose": "^0.6.0",
@@ -17,7 +17,7 @@
   "devDependencies": {
     "@types/cookie-parser": "^1.4.7",
     "@types/supertest": "^6.0.2",
-    "@vramework/cli": "^0.6.2",
+    "@vramework/cli": "^0.6.3",
     "oxlint": "^0.9.5",
     "prettier": "^3.3.3",
     "supertest": "^7.0.0",

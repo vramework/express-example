@@ -44,7 +44,7 @@ export const createSingletonServices: CreateSingletonServices<
 }
 
 /**
- * This function creates the session services on each request, which are a combination of the singleton services and the session services.
+ * This function creates the session services on each request.
  * It's important to use the type CreateSessionServices here, as the vramework CLI uses them to improve the development experience!
  */
 export const createSessionServices: CreateSessionServices<
